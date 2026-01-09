@@ -31,9 +31,8 @@ export const VideoSection = () => {
   return (
     <section ref={containerRef} className="relative h-[300vh] bg-brand-bg">
       <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
-        
         {/* Layer 1: Background Typography (Behind the circle) */}
-        <motion.div 
+        <motion.div
           style={{ opacity: bgTextOpacity }}
           className="absolute inset-0 flex items-center justify-center z-0 pointer-events-none"
         >
@@ -53,11 +52,15 @@ export const VideoSection = () => {
             muted
             loop
             playsInline
+            preload="auto"
+            // @ts-expect-error - fetchPriority is not a valid attribute for video elements
+            fetchPriority="high"
             src="https://69sfgmk1pv2omedb.public.blob.vercel-storage.com/new-templates/hotels/GettyImages-1401517574-1.webm"
+            poster="https://69sfgmk1pv2omedb.public.blob.vercel-storage.com/new-templates/hotels/poster.webp"
           />
-          
+
           {/* Dark overlay for text readability when full screen */}
-          <motion.div 
+          <motion.div
             style={{ opacity: overlayOpacity }}
             className="absolute inset-0 bg-black/30 pointer-events-none"
           />
@@ -73,11 +76,11 @@ export const VideoSection = () => {
             <span className="font-serif italic">& Growth</span>
           </h3>
           <p className="max-w-md text-sm md:text-base font-medium tracking-wide uppercase opacity-80">
-            Building the future of work in India's <br/> most dynamic cities.
+            Building the future of work in India's <br /> most dynamic cities.
           </p>
         </motion.div>
-
       </div>
     </section>
   );
 };
+
